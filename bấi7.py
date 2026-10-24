@@ -184,6 +184,8 @@ class InMemoryRepository(IRepository[T]):
     def add(self, item: T) -> None:
         if item is None:
             raise ValueError("Không chấp nhận phần tử null")
+        if item.id in self._items:
+            raise DuplicateIdException(item.id)
         self._items[item.id] = item
 
     def remove(self, item_id: str) -> bool:
