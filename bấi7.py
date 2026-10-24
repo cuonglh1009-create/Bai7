@@ -108,7 +108,7 @@ class ProjectorRemote(TeachingDevice):
 
     def is_ready_for_use(self) -> bool:
         return (self.status == DeviceStatus.AVAILABLE and
-                self.battery_level >= 10)
+                self.battery_level >= 20)
 
     def get_default_priority_score(self) -> float:
         return float(self.battery_level)
