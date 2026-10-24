@@ -350,9 +350,11 @@ def main():
 
             elif choice == "7":
                 did = input("Mã thiết bị cần trả: ").strip()
-                device = (projector_repo.find_by_id(did) or
-                          ac_repo.find_by_id(did) or
-                          mic_repo.find_by_id(did))
+                device = None
+                for repo in (projector_repo, ac_repo, mic_repo):
+                    device = repo.find_by_id(did)
+                    if device is not None:
+                        break
                 if device is None:
                     print("Không tìm thấy thiết bị.")
                 else:
