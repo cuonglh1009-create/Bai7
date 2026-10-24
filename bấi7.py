@@ -219,7 +219,7 @@ class HighestPriorityStrategy(ISelectionStrategy[T]):
     def select(self, candidates: List[T]) -> T:
         if not candidates:
             raise NoSuitableItemException()
-         return max(candidates, key=self._score_selector)
+        return max(candidates, key=self._score_selector)
 
 
 class FirstAvailableStrategy(ISelectionStrategy[T]):
