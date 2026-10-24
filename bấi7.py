@@ -248,6 +248,7 @@ class AllocationService(Generic[T]):
             candidates = [c for c in candidates if additional_condition(c)]
 
         selected = self._strategy.select(candidates)
+        selected.borrow()
         return selected
 
 
