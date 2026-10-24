@@ -85,6 +85,8 @@ class TeachingDevice(ABC):
         self._status = DeviceStatus.BORROWED
 
     def return_device(self):
+        if self._status != DeviceStatus.BORROWED:
+            raise ValueError(f"Thiết bị {self.id} không ở trạng thái đang mượn")
         self._status = DeviceStatus.AVAILABLE
 
     def __str__(self) -> str:
