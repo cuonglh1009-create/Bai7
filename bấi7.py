@@ -159,7 +159,7 @@ class WirelessMicrophone(TeachingDevice):
                 self.signal_quality >= 40)
 
     def get_default_priority_score(self) -> float:
-        return float(self.battery_level + self.signal_quality)
+        return float(self.battery_level + self.signal_quality)/2
 
 
 # GENERIC REPOSITOR
